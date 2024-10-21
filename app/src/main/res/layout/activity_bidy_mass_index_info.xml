@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BodyMassIndexInfoActivity">
+
+
+    <TextView
+        android:id="@+id/headingTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/body_mass_index"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"/>
+
+    <ImageView
+        android:id="@+id/pictureIV"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:src="@drawable/skinny"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingTV" />
+
+    <ScrollView
+        android:id="@+id/recommendationsSV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/exit_to_homeBTN"
+        app:layout_constraintTop_toBottomOf="@+id/pictureIV"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            android:id="@+id/recommendationsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recommendations" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/exit_to_homeBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exit_to_home"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
