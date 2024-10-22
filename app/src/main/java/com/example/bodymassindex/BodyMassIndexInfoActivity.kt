@@ -39,7 +39,7 @@ class BodyMassIndexInfoActivity : AppCompatActivity() {
         exitToHomeBTN.setOnClickListener {
             finish()
         }
-        val intent = Intent(this, BodyMassIndexInfoActivity::class.java)
+
         launchSomeActivity.launch(intent)
 
     }
