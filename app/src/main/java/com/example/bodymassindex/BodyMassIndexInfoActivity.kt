@@ -24,13 +24,13 @@ class BodyMassIndexInfoActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContentView(R.layout.activity_bidy_mass_index_info)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
 
         headingTV = findViewById(R.id.headingTV)
         pictureIV = findViewById(R.id.pictureIV)
@@ -40,25 +40,11 @@ class BodyMassIndexInfoActivity : AppCompatActivity() {
             finish()
         }
 
-        launchSomeActivity.launch(intent)
+        BMI = calculateValues(
+            intent.getIntExtra("height", 0),
+            intent.getIntExtra("weight", 0))
+        setValues(BMI)
 
-    }
-
-    private val launchSomeActivity = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-            result ->
-        if (result.resultCode == RESULT_OK) {
-            val data = result.data
-            BMI = calculateValues(
-                data!!.getIntExtra("height", 0),
-                data.getIntExtra("weight", 0))
-            setValues(BMI)
-            Toast.makeText(this, "$data", Toast.LENGTH_LONG).show()
-
-        } else {
-
-        }
     }
 
     private fun calculateValues(first: Int, second: Int): Double {
